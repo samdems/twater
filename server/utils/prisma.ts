@@ -1,6 +1,13 @@
 import { PrismaClient } from '@prisma/client'
 import { PrismaNeon } from '@prisma/adapter-neon'
-import { Pool } from '@neondatabase/serverless'
+import { Pool, neonConfig } from '@neondatabase/serverless'
+import ws from 'ws'
+
+// Configure WebSocket for Node.js environment
+// This is required for Node v21 and below, and for serverless environments
+if (!neonConfig.webSocketConstructor) {
+  neonConfig.webSocketConstructor = ws
+}
 
 const prismaClientSingleton = () => {
   // Prisma 7 requires an adapter for serverless environments
@@ -10,7 +17,16 @@ const prismaClientSingleton = () => {
     throw new Error('DATABASE_URL environment variable is not set')
   }
   
-  const pool = new Pool({ connectionString })
+  // Ensure connectionString is actually a string
+  if (typeof connectionString !== 'string') {
+    throw new Error(`DATABASE_URL must be a string, but received: ${typeof connectionString}`)
+  }
+  
+  // Create pool with explicit string connectionString
+  const pool = new Pool({ 
+    connectionString: connectionString.trim()
+  })
+  
   const adapter = new PrismaNeon(pool)
   
   return new PrismaClient({
