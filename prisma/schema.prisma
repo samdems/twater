@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Tweet {
+  id        String   @id @default(cuid())
+  author    String
+  handle    String
+  content   String
+  createdAt DateTime @default(now())
+  comments  Int      @default(0)
+  retweets  Int      @default(0)
+  likes     Int      @default(0)
+}
+

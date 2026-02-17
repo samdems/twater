@@ -10,6 +10,9 @@ A Twitter-like social media application built with Nuxt.js, Vue 3, Tailwind CSS,
 - 🌙 Light and dark theme support
 - ✍️ Tweet composition with character limit
 - 💬 Interactive tweet cards with like, retweet, and comment actions
+- 🗄️ PostgreSQL database for persistent tweet storage
+- 🔄 Real-time updates with automatic data synchronization
+- 🎭 Unique DiceBear avatars for each user
 - 🔍 Explore trending topics
 - 🔔 Notifications page
 - 👤 User profile page
@@ -22,14 +25,40 @@ A Twitter-like social media application built with Nuxt.js, Vue 3, Tailwind CSS,
 - **UI Library**: Vue 3
 - **Styling**: Tailwind CSS
 - **Components**: DaisyUI
+- **Database**: PostgreSQL with Prisma ORM
+- **Avatars**: DiceBear
 - **Language**: TypeScript
 
 ## Setup
 
-Make sure to install dependencies:
+### 1. Install dependencies
 
 ```bash
 npm install
+```
+
+### 2. Configure Database
+
+Create a `.env` file in the root directory with your PostgreSQL connection string:
+
+```env
+DATABASE_URL="your_postgresql_connection_string"
+```
+
+See [DATABASE.md](./DATABASE.md) for detailed database setup instructions.
+
+### 3. Set up the database
+
+Push the Prisma schema to your database:
+
+```bash
+npm run db:push
+```
+
+(Optional) Seed the database with sample tweets:
+
+```bash
+npm run db:seed
 ```
 
 ## Development Server

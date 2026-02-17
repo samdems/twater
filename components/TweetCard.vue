@@ -46,6 +46,8 @@
 </template>
 
 <script setup lang="ts">
+const { updateTweetLikes } = useTweets()
+
 interface Tweet {
   id: string
   author: string
@@ -66,8 +68,12 @@ const props = defineProps<{
 const isLiked = ref(false)
 const likes = ref(props.tweet.likes)
 
-const toggleLike = () => {
+const toggleLike = async () => {
   isLiked.value = !isLiked.value
-  likes.value = isLiked.value ? likes.value + 1 : likes.value - 1
+  const newLikes = isLiked.value ? likes.value + 1 : likes.value - 1
+  likes.value = newLikes
+  
+  // Update in database
+  await updateTweetLikes(props.tweet.id, newLikes)
 }
 </script>
