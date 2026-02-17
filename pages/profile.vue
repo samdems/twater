@@ -4,9 +4,9 @@
       <div class="relative h-48 bg-gradient-to-r from-primary to-secondary"></div>
       <div class="px-4 pb-4">
         <div class="flex justify-between items-end -mt-16 mb-4">
-          <div class="avatar placeholder">
-            <div class="bg-primary text-primary-content rounded-full w-32 ring ring-base-100 ring-offset-base-100 ring-offset-2">
-              <span class="text-3xl">YO</span>
+          <div class="avatar">
+            <div class="w-32 rounded-full ring ring-base-100 ring-offset-base-100 ring-offset-2">
+              <img :src="useAvatar('your_handle')" alt="Your avatar" />
             </div>
           </div>
           <button class="btn btn-outline">Edit Profile</button>

@@ -2,9 +2,9 @@
   <div class="card bg-base-100 border-b border-base-300">
     <div class="card-body">
       <div class="flex gap-4">
-        <div class="avatar placeholder">
-          <div class="bg-primary text-primary-content rounded-full w-12">
-            <span>YO</span>
+        <div class="avatar">
+          <div class="w-12 rounded-full">
+            <img :src="useAvatar('your_handle')" alt="Your avatar" />
           </div>
         </div>
         <div class="flex-1">

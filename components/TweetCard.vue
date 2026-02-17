@@ -2,9 +2,9 @@
   <div class="card bg-base-100 border-b border-base-300 hover:bg-base-200/50 transition-colors">
     <div class="card-body p-4">
       <div class="flex gap-3">
-        <div class="avatar placeholder">
-          <div :class="`bg-${tweet.avatarColor} text-${tweet.avatarColor}-content rounded-full w-12`">
-            <span>{{ tweet.authorInitials }}</span>
+        <div class="avatar">
+          <div class="w-12 rounded-full">
+            <img :src="useAvatar(tweet.handle)" :alt="`${tweet.author} avatar`" />
           </div>
         </div>
         <div class="flex-1">

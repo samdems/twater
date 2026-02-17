@@ -71,9 +71,9 @@
             <div class="space-y-3">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="avatar placeholder">
-                    <div class="bg-primary text-primary-content rounded-full w-10">
-                      <span class="text-sm">EY</span>
+                  <div class="avatar">
+                    <div class="w-10 rounded-full">
+                      <img :src="useAvatar('youyuxi')" alt="Evan You avatar" />
                     </div>
                   </div>
                   <div>
@@ -85,9 +85,9 @@
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="avatar placeholder">
-                    <div class="bg-secondary text-secondary-content rounded-full w-10">
-                      <span class="text-sm">SD</span>
+                  <div class="avatar">
+                    <div class="w-10 rounded-full">
+                      <img :src="useAvatar('atinux')" alt="Sebastien Chopin avatar" />
                     </div>
                   </div>
                   <div>
