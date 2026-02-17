@@ -23,9 +23,11 @@
 </template>
 
 <script setup lang="ts">
+import type { Tweet } from '~/composables/useTweets'
+
 const { fetchTweets, createTweet } = useTweets()
 const loading = ref(true)
-const tweets = ref<any[]>([])
+const tweets = ref<Tweet[]>([])
 
 // Load tweets on mount
 onMounted(async () => {

@@ -1,18 +1,18 @@
 import prisma from '~/server/utils/prisma'
 
 export default defineEventHandler(async (event) => {
+  const body = await readBody(event)
+  
+  const { content, author, handle } = body
+  
+  if (!content || !author || !handle) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Missing required fields'
+    })
+  }
+  
   try {
-    const body = await readBody(event)
-    
-    const { content, author, handle } = body
-    
-    if (!content || !author || !handle) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Missing required fields'
-      })
-    }
-    
     const tweet = await prisma.tweet.create({
       data: {
         content,

@@ -3,7 +3,7 @@ export interface Tweet {
   author: string
   handle: string
   content: string
-  createdAt: Date | string
+  createdAt: string
   comments: number
   retweets: number
   likes: number
