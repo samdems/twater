@@ -60,8 +60,7 @@ Check out the [Nuxt deployment documentation](https://nuxt.com/docs/getting-star
 
 ```
 twater/
-├── app/
-│   └── app.vue          # Root component
+├── app.vue              # Root component
 ├── components/
 │   ├── TweetCard.vue    # Individual tweet display
 │   └── TweetComposer.vue # Tweet composition form
